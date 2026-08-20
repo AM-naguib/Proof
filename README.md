@@ -14,6 +14,10 @@
 - بدون Backend أو Database.
 - بدون أي مكتبات JavaScript خارجية؛ التصدير يتم محليًا داخل المتصفح.
 
+## Live Demo
+
+https://am-naguib.github.io/Proof/
+
 ## التشغيل محليًا
 
 افتح `index.html` مباشرة أو شغّل أي static server، مثل:
@@ -26,9 +30,6 @@ python -m http.server 8080
 
 ## GitHub Pages
 
-المشروع Static، لذلك يمكن تشغيله مباشرة من GitHub Pages بدون build step.
+المشروع Static ومجهز للنشر تلقائيًا عبر GitHub Actions من الفرع `main`.
 
-1. ارفع الملفات على Repository عام.
-2. من Settings → Pages.
-3. اختر `Deploy from a branch`.
-4. اختر الفرع الرئيسي والمجلد `/ (root)`.
+كل Push جديد على `main` يشغّل Workflow النشر الموجود في `.github/workflows/pages.yml`.
