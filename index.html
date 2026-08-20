@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#111b21" />
+  <title>WhatsApp Message Renderer</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app-shell">
+    <section class="control-panel" aria-label="إعدادات الرسالة">
+      <div class="brand-row">
+        <div>
+          <p class="eyebrow">WhatsApp Message Renderer</p>
+          <h1>حوّل أي رسالة لصورة واتساب</h1>
+          <p class="subtitle">الصورة تتكيف تلقائيًا مع طول الرسالة — من غير Screenshot ولا Crop.</p>
+        </div>
+        <button id="themeToggle" class="icon-button" type="button" aria-label="تبديل المظهر" title="تبديل المظهر">☾</button>
+      </div>
+
+      <label class="field-label" for="messageInput">الرسالة</label>
+      <textarea id="messageInput" rows="7" spellcheck="true" placeholder="الصق الرسالة هنا...">اصلا مش اول مره اخد منك انت عارف واخد منك حاجات كتيررر</textarea>
+
+      <div class="settings-grid">
+        <div class="field-group">
+          <label class="field-label" for="timeInput">الوقت</label>
+          <input id="timeInput" type="text" inputmode="text" value="2:42 AM" placeholder="2:42 AM" />
+        </div>
+
+        <div class="field-group">
+          <span class="field-label">نوع الرسالة</span>
+          <div class="segmented" role="group" aria-label="نوع الرسالة">
+            <button class="segment active" type="button" data-direction="incoming">واردة</button>
+            <button class="segment" type="button" data-direction="outgoing">صادرة</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="settings-grid compact-grid">
+        <div class="field-group">
+          <span class="field-label">اتجاه النص</span>
+          <div class="segmented" role="group" aria-label="اتجاه النص">
+            <button class="segment active" type="button" data-textdir="auto">تلقائي</button>
+            <button class="segment" type="button" data-textdir="rtl">RTL</button>
+            <button class="segment" type="button" data-textdir="ltr">LTR</button>
+          </div>
+        </div>
+
+        <div class="field-group slider-group">
+          <label class="field-label" for="maxWidthInput">أقصى عرض للرسالة <span id="maxWidthValue">760px</span></label>
+          <input id="maxWidthInput" type="range" min="280" max="900" step="10" value="760" />
+        </div>
+      </div>
+
+      <div class="actions">
+        <button id="downloadBtn" class="primary-button" type="button">تنزيل PNG</button>
+        <button id="copyBtn" class="secondary-button" type="button">نسخ الصورة</button>
+        <button id="resetBtn" class="ghost-button" type="button">إعادة ضبط</button>
+      </div>
+      <p id="statusText" class="status-text" role="status" aria-live="polite"></p>
+    </section>
+
+    <section class="preview-panel" aria-label="معاينة الرسالة">
+      <div class="preview-header">
+        <div>
+          <span>المعاينة</span>
+          <small>المقاس النهائي يلتف حول المحتوى تلقائيًا</small>
+        </div>
+        <span id="sizeBadge" class="size-badge">—</span>
+      </div>
+
+      <div class="preview-stage" id="previewStage">
+        <div id="captureArea" class="capture-area theme-dark" aria-label="منطقة الصورة">
+          <div id="messageRow" class="message-row incoming">
+            <div id="messageBubble" class="message-bubble" dir="auto">
+              <span id="messageText" class="message-text">اصلا مش اول مره اخد منك انت عارف واخد منك حاجات كتيررر</span>
+              <span id="messageTime" class="message-time">2:42 AM</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
